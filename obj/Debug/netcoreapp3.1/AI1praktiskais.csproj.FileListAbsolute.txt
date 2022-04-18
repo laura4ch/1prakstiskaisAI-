@@ -1,0 +1,16 @@
+C:\Users\Laura\source\repos\AI1praktiskais\bin\Debug\netcoreapp3.1\AI1praktiskais.exe
+C:\Users\Laura\source\repos\AI1praktiskais\bin\Debug\netcoreapp3.1\AI1praktiskais.deps.json
+C:\Users\Laura\source\repos\AI1praktiskais\bin\Debug\netcoreapp3.1\AI1praktiskais.runtimeconfig.json
+C:\Users\Laura\source\repos\AI1praktiskais\bin\Debug\netcoreapp3.1\AI1praktiskais.runtimeconfig.dev.json
+C:\Users\Laura\source\repos\AI1praktiskais\bin\Debug\netcoreapp3.1\AI1praktiskais.dll
+C:\Users\Laura\source\repos\AI1praktiskais\bin\Debug\netcoreapp3.1\AI1praktiskais.pdb
+C:\Users\Laura\source\repos\AI1praktiskais\obj\Debug\netcoreapp3.1\AI1praktiskais.csprojAssemblyReference.cache
+C:\Users\Laura\source\repos\AI1praktiskais\obj\Debug\netcoreapp3.1\AI1praktiskais.AssemblyInfoInputs.cache
+C:\Users\Laura\source\repos\AI1praktiskais\obj\Debug\netcoreapp3.1\AI1praktiskais.AssemblyInfo.cs
+C:\Users\Laura\source\repos\AI1praktiskais\obj\Debug\netcoreapp3.1\AI1praktiskais.csproj.CoreCompileInputs.cache
+C:\Users\Laura\source\repos\AI1praktiskais\obj\Debug\netcoreapp3.1\AI1praktiskais.dll
+C:\Users\Laura\source\repos\AI1praktiskais\obj\Debug\netcoreapp3.1\AI1praktiskais.pdb
+C:\Users\Laura\source\repos\AI1praktiskais\obj\Debug\netcoreapp3.1\AI1praktiskais.genruntimeconfig.cache
+C:\Users\Laura\source\repos\AI1praktiskais\obj\Debug\netcoreapp3.1\AI1praktiskais.Form1.resources
+C:\Users\Laura\source\repos\AI1praktiskais\obj\Debug\netcoreapp3.1\AI1praktiskais.Properties.Resources.resources
+C:\Users\Laura\source\repos\AI1praktiskais\obj\Debug\netcoreapp3.1\AI1praktiskais.csproj.GenerateResource.cache

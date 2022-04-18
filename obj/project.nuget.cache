@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "knJjc7CujeqYdvaFGTx1WF4ayXcRz/QNptwEGc2xLOJQlRp4lHrhgLsksegtNjf6ZpZg4PKvH4BnIaLp3udDuA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Laura\\source\\repos\\AI1praktiskais\\AI1praktiskais.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Laura\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}
