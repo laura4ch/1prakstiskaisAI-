@@ -6,7 +6,7 @@ namespace AI1praktiskais
 {
     public class GameField
     {
-        protected int height = 5, width = 5;
+        public int height = 5, width = 5;
         public List<Cell> cells;
 
         public GameField()

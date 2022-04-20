@@ -16,6 +16,7 @@ namespace AI1praktiskais
         Player realPlayer = new Player(Color.Pink, 0, 0, 2);
         Player aiPlayer = new Player(Color.Blue, 0, 4, 2);
         GameField field = new GameField();
+        public bool aiStartsGame;
         
 
         public void RenderTurn()
@@ -37,10 +38,21 @@ namespace AI1praktiskais
         
         }
 
+        private void Splatoon_Load(object sender, EventArgs e)
+        {
 
+            var result = MessageBox.Show("Will you start new game?( If no, then computer starts game.)", "Computer", MessageBoxButtons.YesNo);
+            if (result == DialogResult.No)
+            {
+                AIMove();
+                aiStartsGame = true;
+            }
+        }
 
         protected override void OnPaint(System.Windows.Forms.PaintEventArgs e)
         {
+                
+
               // initial coord for real player
                RenderTurn();
 
@@ -48,17 +60,16 @@ namespace AI1praktiskais
                System.Drawing.Graphics formGraphics;
                System.Drawing.SolidBrush aiBrush = new System.Drawing.SolidBrush(aiPlayer.color);
                formGraphics = this.gameField.CreateGraphics();
-               formGraphics.FillRectangle(aiBrush, new Rectangle(aiPlayer.x*100, aiPlayer.y * 100, 100, 100));
+               formGraphics.FillRectangle(aiBrush, new Rectangle(400, 200, 100, 100));
+               formGraphics.FillRectangle(aiBrush, new Rectangle(aiPlayer.x * 100, aiPlayer.y * 100, 100, 100));
                aiBrush.Dispose();
                formGraphics.Dispose();
 
+
         }
 
 
-        private void Splatoon_Load(object sender, EventArgs e)
-        {
-          
-        }
+     
 
         private void upButton_Click(object sender, EventArgs e)
         {
