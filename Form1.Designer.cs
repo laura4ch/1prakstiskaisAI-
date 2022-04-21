@@ -36,12 +36,12 @@
             this.scoreLabel = new System.Windows.Forms.Label();
             this.gameField = new System.Windows.Forms.Panel();
             this.resetButton = new System.Windows.Forms.Button();
-            this.turnLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // upButton
             // 
             this.upButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.upButton.Font = new System.Drawing.Font("Comic Sans MS", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.upButton.Image = ((System.Drawing.Image)(resources.GetObject("upButton.Image")));
             this.upButton.Location = new System.Drawing.Point(940, 415);
             this.upButton.Name = "upButton";
@@ -107,23 +107,13 @@
             this.resetButton.TabIndex = 6;
             this.resetButton.Text = "Reset";
             this.resetButton.UseVisualStyleBackColor = true;
-            // 
-            // turnLabel
-            // 
-            this.turnLabel.AutoSize = true;
-            this.turnLabel.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.turnLabel.Location = new System.Drawing.Point(550, 118);
-            this.turnLabel.Name = "turnLabel";
-            this.turnLabel.Size = new System.Drawing.Size(65, 31);
-            this.turnLabel.TabIndex = 7;
-            this.turnLabel.Text = "Turn";
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1177, 657);
-            this.Controls.Add(this.turnLabel);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.gameField);
             this.Controls.Add(this.scoreLabel);
@@ -148,7 +138,6 @@
         private System.Windows.Forms.Label scoreLabel;
         private System.Windows.Forms.Panel gameField;
         private System.Windows.Forms.Button resetButton;
-        private System.Windows.Forms.Label turnLabel;
     }
 }
 
