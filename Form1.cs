@@ -14,8 +14,8 @@ namespace AI1praktiskais
     public partial class Form1 : Form
     {
 
-        Player realPlayer = new Player(Color.Pink, 0, 0, 2);
-        Player aiPlayer = new Player(Color.Blue, 0, 4, 2);
+        Player realPlayer = new Player(Color.Pink, 0,2);
+        Player aiPlayer = new Player(Color.Blue, 4,2);
         GameField field = new GameField();
         public bool aiStartsGame;
 
@@ -165,8 +165,8 @@ namespace AI1praktiskais
             System.Drawing.Graphics formGraphics;
             formGraphics = this.gameField.CreateGraphics();
             formGraphics.Clear(this.gameField.BackColor);
-            this.realPlayer = new Player(Color.Pink, 0, 0, 2);
-            this.aiPlayer = new Player(Color.Blue, 0, 4, 2);
+            this.realPlayer = new Player(Color.Pink, 0, 2);
+            this.aiPlayer = new Player(Color.Blue, 4,2);
             this.field = new GameField();
             field.cells.Find(cell => cell.x == realPlayer.x && cell.y == realPlayer.y).owner = realPlayer;
             field.cells.Find(cell => cell.x == aiPlayer.x && cell.y == aiPlayer.y).owner = aiPlayer;

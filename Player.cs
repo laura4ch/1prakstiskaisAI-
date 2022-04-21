@@ -31,27 +31,24 @@ namespace AI1praktiskais
 
         public GameTree BuildGameTree(GameField field, Player aiPlayer, Player realPlayer)
         {
-            return CreateMinimax(field, aiPlayer, realPlayer, "", 0);
+            return CreateGameTree(field, aiPlayer, realPlayer, "", 0);
         }
 
-        public Player(System.Drawing.Color color, int score, int x, int y)
+        public Player(System.Drawing.Color color, int x, int y)
         {
             this.color = color;
-            this.score = score;
             this.x = x;
             this.y = y;
         }
 
         public Player(Player player )
         {
-            this.color = player.color;
-            this.score = player.score;
             this.x = player.x;
             this.y = player.y;
         }
+
         public System.Drawing.Color color;
         public int x, y;
-        public int score;
 
         protected bool CanMoveDirection(GameField gameField, Player secondPlayer, int x, int y)
         {
@@ -111,8 +108,9 @@ namespace AI1praktiskais
             return this.Move(gameField, secondPlayer, 0, 1);
         }
 
-        private GameTree CreateMinimax(GameField field, Player aiPlayer, Player realPlayer, string direction, int level)
+        private GameTree CreateGameTree(GameField field, Player aiPlayer, Player realPlayer, string direction, int level)
         {
+            // tika izveidota speles koka virsotne 
             GameTree gameTree = new GameTree();
             gameTree.aiPlayer = aiPlayer;
             gameTree.realPlayer = realPlayer;
@@ -122,7 +120,7 @@ namespace AI1praktiskais
             gameTree.level = level;
             Player firstPlayer;
             Player secondPlayer;
-            // if level is even, then maximize and its pc turn
+            // tika izvelets speletaja karta
             if (!Convert.ToBoolean(level % 2))
             {
                 firstPlayer = aiPlayer;
@@ -134,14 +132,14 @@ namespace AI1praktiskais
                 gameTree.isAITurn = true;
             }
 
+            // beigas noscijums kur tika atgriezts koka lapa ar vertejumu
             if (level == 7)
             {
-                // get potential coordinates
-                int newX = secondPlayer.x;
-                int newY = secondPlayer.y;
-                gameTree.bestScore = GetPointFromMove(field, newX, newY, aiPlayer);
+                gameTree.bestScore = GetPointFromMove(field, secondPlayer.x, secondPlayer.y, aiPlayer);
                 return gameTree;
             }
+
+            // directions - tas ir visie iespejami soļa virzieni
             List<string> directions = new List<string>();
 
             if (CanMoveDirection(field, secondPlayer, firstPlayer.x + 1, firstPlayer.y)) directions.Add(Directions.Right);
@@ -155,14 +153,17 @@ namespace AI1praktiskais
             int oldY = firstPlayer.y;
             int oldX2 = secondPlayer.x;
             int oldY2 = secondPlayer.y;
+        
+            // koka pecteču izveidošana katram iespejamam virzienam
             for (int i = 0; i < directionsArray.Length; i++)
             {
 
                 if (directions[i] == Directions.Up)
                 {
+                    // speles laukuma  kopija izveidošana ar nakamo soļu
                     GameField newGameField = new GameField(field);
                     firstPlayer.MoveUp(newGameField, firstPlayer);
-                    gameTree.childGameTrees.Add(CreateMinimax(newGameField, aiPlayer, realPlayer, Directions.Up, level + 1));
+                    gameTree.childGameTrees.Add(CreateGameTree(newGameField, aiPlayer, realPlayer, Directions.Up, level + 1));
                 }
                 firstPlayer.x = oldX;
                 firstPlayer.y = oldY;
@@ -171,9 +172,10 @@ namespace AI1praktiskais
 
                 if (directions[i] == Directions.Down)
                 {
+                    // speles laukuma  kopija izveidošana ar nakamo soļu
                     GameField newGameField = new GameField(field);
                     firstPlayer.MoveDown(newGameField, firstPlayer);
-                    gameTree.childGameTrees.Add(CreateMinimax(newGameField, aiPlayer, realPlayer, Directions.Down, level + 1));
+                    gameTree.childGameTrees.Add(CreateGameTree(newGameField, aiPlayer, realPlayer, Directions.Down, level + 1));
                 }
                 firstPlayer.x = oldX;
                 firstPlayer.y = oldY;
@@ -182,9 +184,10 @@ namespace AI1praktiskais
 
                 if (directions[i] == Directions.Left)
                 {
+                    // speles laukuma  kopija izveidošana ar nakamo soļu
                     GameField newGameField = new GameField(field);
                     firstPlayer.MoveLeft(newGameField, firstPlayer);
-                    gameTree.childGameTrees.Add(CreateMinimax(newGameField, aiPlayer, realPlayer, Directions.Left, level + 1));
+                    gameTree.childGameTrees.Add(CreateGameTree(newGameField, aiPlayer, realPlayer, Directions.Left, level + 1));
                 }
                 firstPlayer.x = oldX;
                 firstPlayer.y = oldY;
@@ -193,9 +196,10 @@ namespace AI1praktiskais
 
                 if (directions[i] == Directions.Right)
                 {
+                    // speles laukuma  kopija izveidošana ar nakamo soļu
                     GameField newGameField = new GameField(field);
                     firstPlayer.MoveRight(newGameField, firstPlayer);
-                    gameTree.childGameTrees.Add(CreateMinimax(newGameField, aiPlayer, realPlayer, Directions.Right, level + 1));
+                    gameTree.childGameTrees.Add(CreateGameTree(newGameField, aiPlayer, realPlayer, Directions.Right, level + 1));
                 }
                 firstPlayer.x = oldX;
                 firstPlayer.y = oldY;
@@ -203,14 +207,12 @@ namespace AI1praktiskais
                 secondPlayer.y = oldY2;
 
             }
-            double bestScore;
 
+            // koka zara novertejums balstoties uz peteču novertejumu
+            double bestScore;
             bestScore = gameTree.childGameTrees.Max(tree => tree.bestScore);
-            if(level == 0)
-            {
-                level = 0;
-            }
             gameTree.bestScore = bestScore;
+            // labaka virziena atrašana 
             gameTree.bestMove = gameTree.childGameTrees.Find(tree=> tree.bestScore == bestScore).direction;
             return gameTree;
         }
