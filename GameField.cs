@@ -13,8 +13,21 @@ namespace AI1praktiskais
         {
 
             cells = new List<Cell>();
-            for(int i = 0; i < height; i++) {
-                for(int j=0;j< width;j++) cells.Add(new Cell(i,j));
+            for (int i = 0; i < height; i++)
+            {
+                for (int j = 0; j < width; j++) cells.Add(new Cell(i, j));
+
+            }
+        }
+        public GameField(GameField gameField)
+        {
+
+            cells = new List<Cell>(); 
+            Cell[] newCells = gameField.cells.ToArray();
+            for (int i = 0; i < newCells.Length; i++)
+            {
+              
+                cells.Add(new Cell(newCells[i].x, newCells[i].y, newCells[i].owner));
 
             }
         }
@@ -33,6 +46,13 @@ namespace AI1praktiskais
             this.x = x;
             this.y = y;
             isEmpty = true;
+        }
+        public Cell(int x, int y, Player owner)
+        {
+            this.x = x;
+            this.y = y;
+            isEmpty = false;
+            this.owner = owner;
         }
     } 
 }
